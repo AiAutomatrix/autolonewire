@@ -4,32 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- 1. SEO & AI Metadata -->
+    <!-- 1. Primary SEO Metadata -->
     <title>Rise Broker Firm | Financing for Trucks, SUVs & Cars | Bad Credit Approved</title>
     <meta name="description" content="Get approved for trucks, SUVs, and cars regardless of credit history. Rise Broker Firm connects you with 30+ lenders. Canada-wide delivery & 90 days no payments." />
     <meta name="keywords" content="bad credit car finance, truck financing canada, no credit car loans, rise broker firm, suv financing, heavy duty truck loans" />
-    <meta name="robots" content="index, follow" />
     <meta name="author" content="Rise Broker Firm" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     
-    <!-- AI & Location Signals -->
+    <!-- 2. Location & Canonical Signals -->
     <link rel="canonical" href="https://ryewire.vercel.app/" />
     <meta name="geo.region" content="CA" />
     <meta name="geo.placename" content="Canada" />
-    <meta name="og:locale" content="en_CA" />
-
-    <!-- Open Graph / Social Media / AI Previews -->
-    <meta property="og:title" content="Rise Broker Firm | Bad Credit Financing & Vehicle Inventory" />
-    <meta property="og:description" content="We don't let a credit score stand between you and your vehicle. 1000+ vehicles in inventory. 90 days no payments. Get approved today." />
+    
+    <!-- 3. Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <!-- Using the Hero Section image for the preview -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ryewire.vercel.app/" />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop" />
+    <meta property="og:title" content="Rise Broker Firm | Bad Credit Financing & Vehicle Inventory" />
+    <meta property="og:description" content="We don't let a credit score stand between you and your vehicle. 1000+ vehicles in inventory. 90 days no payments. Get approved today." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1200&auto=format&fit=crop" />
+    <meta property="og:image:alt" content="Heavy duty truck and SUV fleet available for financing" />
     <meta property="og:site_name" content="Rise Broker Firm" />
+    <meta property="og:locale" content="en_CA" />
 
-    <!-- Twitter Card -->
+    <!-- 4. Twitter Card (X) -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@RiseBrokerFirm" />
+    <meta name="twitter:creator" content="@RiseBrokerFirm" />
     <meta name="twitter:title" content="Rise Broker Firm | Financing for Trucks, SUVs & Cars" />
     <meta name="twitter:description" content="Get approved today regardless of credit. Canada-wide delivery." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1200&auto=format&fit=crop" />
+    <meta name="twitter:image:alt" content="Heavy duty truck and SUV fleet available for financing" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,31 +64,68 @@
       body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     </style>
     
-    <!-- 2. Structured Data (Schema.org) for AI Knowledge Graph -->
+    <!-- 5. Structured Data (Schema.org) for AI Knowledge Graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "FinancialService",
-      "name": "Rise Broker Firm",
-      "description": "Trucks, SUVs, and Cars financing for all credit levels. Over 1,000 vehicles in inventory Canada-wide.",
-      "url": "https://ryewire.vercel.app/",
-      "logo": "https://ryewire.vercel.app/logo.png",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "CA"
-      },
-      "areaServed": "CA",
-      "makesOffer": [
+      "@graph": [
         {
-          "@type": "Offer",
-          "name": "Bad Credit Financing",
-          "description": "Financing options for clients with bad credit, no credit, or bankruptcy."
+          "@type": ["FinancialService", "AutoDealer"],
+          "name": "Rise Broker Firm",
+          "description": "Trucks, SUVs, and Cars financing for all credit levels. Over 1,000 vehicles in inventory Canada-wide.",
+          "url": "https://ryewire.vercel.app/",
+          "logo": "https://ryewire.vercel.app/logo.png",
+          "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "CA"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Canada"
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "name": "Bad Credit Financing",
+              "description": "Financing options for clients with bad credit, no credit, or bankruptcy."
+            },
+            {
+              "@type": "Offer",
+              "name": "Vehicle Delivery",
+              "description": "Canada-wide delivery of trucks, SUVs, and cars."
+            }
+          ]
         },
         {
-          "@type": "Offer",
-          "name": "Vehicle Delivery",
-          "description": "Canada-wide delivery of trucks, SUVs, and cars."
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do you really accept bad credit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Rise Broker Firm works with over 30 different lenders, including major banks and private institutions. We have specialized programs designed specifically for clients with bad credit, no credit, or past bankruptcies."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where do you deliver?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer Canada-wide delivery. No matter where you are located in the country, we can arrange to have your new truck, SUV, or car delivered directly to you."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What kind of warranty coverage is available?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer aftermarket warranty coverage on our vehicles. This ensures that you are protected against mechanical failures and unexpected repairs after your purchase."
+              }
+            }
+          ]
         }
       ]
     }
@@ -103,8 +145,7 @@
 </head>
   <body>
     <div id="root">
-      <!-- 5. Manual Prerendering for SEO/AI Crawlers -->
-      <!-- This content is displayed before JS loads, allowing AI bots to read the full value prop and FAQs immediately. -->
+      <!-- 6. Manual Prerendering for SEO/AI Crawlers -->
       <div style="background-color: #0f172a; color: white; padding: 40px; font-family: sans-serif; min-height: 100vh;">
         <h1 style="font-size: 3rem; font-weight: 800; margin-bottom: 20px;">Trucks, SUVs, Cars. We Have It All.</h1>
         <p style="font-size: 1.25rem; margin-bottom: 30px;">

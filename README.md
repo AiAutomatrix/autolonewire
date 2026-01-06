@@ -1,14 +1,14 @@
-# ContractorFinancingPro - Website Build Guide
+# Rise Broker Firm - Website Build Guide
 
-This document outlines the architecture, design system, and component breakdown used to create the **ContractorFinancingPro** high-conversion landing page.
+This document outlines the architecture, design system, and component breakdown used to create the **Rise Broker Firm** high-conversion landing page.
 
 ## 🛠 Technology Stack
 
-*   **Framework**: React 19 (via ES Modules)
-*   **Styling**: Tailwind CSS (via CDN for rapid prototyping)
+*   **Framework**: React 18 (via Vite)
+*   **Styling**: Tailwind CSS
 *   **Icons**: Lucide React
 *   **Typography**: Google Fonts (Inter)
-*   **Bundling**: None (Native ES Modules with Import Maps)
+*   **Build Tool**: Vite
 
 ## 🎨 Design System
 
@@ -30,7 +30,7 @@ The application is composed of modular functional components found in the `/comp
 
 ### 1. Header (`Header.tsx`)
 *   **Behavior**: Sticky positioning (`sticky top-0`) with a `backdrop-blur` effect to maintain visibility while scrolling.
-*   **Elements**: Logo (HardHat icon), Brand Name, and a "Book Free Call" CTA button.
+*   **Elements**: Logo (CarFront icon), Brand Name, and a "Apply Now" CTA button.
 
 ### 2. Hero Section (`Hero.tsx`)
 *   **Layout**: Split layout with text on the left and visual weight on the background.
@@ -38,7 +38,7 @@ The application is composed of modular functional components found in the `/comp
     *   **Image**: High-quality Unsplash image of a truck/construction site.
     *   **Technique**: The image is wrapped in a `div` with `absolute inset-0`.
     *   **Overlays**: A dark slate overlay (`bg-slate-900/70`) + a gradient (`bg-gradient-to-r`) ensures white text remains readable against the busy image.
-*   **Key Conversion Elements**: Two distinct buttons (Primary CTA vs Secondary "Learn More") and "Trust Signals" (icons at the bottom).
+*   **Key Conversion Elements**: Two distinct buttons (Primary CTA vs Secondary "View Benefits") and "Trust Signals" (icons at the bottom).
 
 ### 3. Problem Section (`ProblemSection.tsx`)
 *   **Goal**: Agitate the user's pain points (Banks saying "No").
@@ -48,44 +48,31 @@ The application is composed of modular functional components found in the `/comp
 ### 4. Solution Section (`SolutionSection.tsx`)
 *   **Goal**: Present the alternative financing solution.
 *   **Layout**: 2-Column Asymmetric layout (Text Left, List Right).
-*   **Visuals**: Uses Lucide icons (Truck, PenTool) to represent specific services.
+*   **Visuals**: Uses Lucide icons (Truck, Car, Shield) to represent specific services.
 
 ### 5. Process Section (`ProcessSection.tsx`)
 *   **Goal**: Remove friction by showing how easy the process is.
 *   **UI Pattern**: 3-step timeline. On desktop, a CSS horizontal line connects the steps behind the numbers.
 
 ### 6. Booking Section (`BookingSection.tsx`)
-*   **Complexity**: High. Contains internal state (`useState`) to mock a scheduling interface.
-*   **Design**: "Glassmorphism" inspired card with a split view (Specialist info vs Calendar).
-*   **Logic**: 
-    1.  User selects a date (Updates `selectedDate` state).
-    2.  User selects a time slot.
-    3.  View switches to a "Success" state (`step === 2`).
+*   **Complexity**: High. Contains `useEffect` to load external Calendly script.
+*   **Design**: "Glassmorphism" inspired card container for the widget.
 
 ### 7. FAQ Section (`FAQSection.tsx`)
 *   **UI Pattern**: Accordion / Collapsible list.
 *   **SEO Feature**: Dynamically injects JSON-LD Structured Data (`<script type="application/ld+json">`) into the DOM for Google Rich Snippets.
 
-## 🖼 Images & Assets
-
-We utilize external high-quality placeholders.
-
-| Component | Source | URL / Description |
-| :--- | :--- | :--- |
-| **Hero Background** | Unsplash | `https://images.unsplash.com/photo-1533473359331-0135ef1b58bf` (Truck/Construction) |
-| **Specialist Avatar** | Picsum | `https://picsum.photos/60/60?random=1` |
-
 ## 🚀 Setup Instructions
 
-1.  **HTML Setup**: Ensure `index.html` includes the Tailwind CDN script and the customized `tailwind.config` in the `<head>`.
-2.  **Import Maps**: Use the `<script type="importmap">` tag in `index.html` to resolve `react`, `react-dom`, and `lucide-react` from `esm.sh`.
-3.  **Entry Point**: `index.tsx` mounts the `App` component to the root div.
+1.  **Install Dependencies**: `npm install`
+2.  **Run Development Server**: `npm run dev`
+3.  **Build for Production**: `npm run build`
 
 ## 📂 File Structure
 
 ```
 /
-├── index.html          # Entry point + Tailwind Config + Import Maps
+├── index.html          # Entry point
 ├── index.tsx           # React Root Mount
 ├── App.tsx             # Main layout assembler
 ├── metadata.json       # App metadata
