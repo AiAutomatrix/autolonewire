@@ -3,17 +3,22 @@ import { SectionHeading } from './SectionHeading';
 
 export const BookingSection: React.FC = () => {
   useEffect(() => {
+    // Check if script is already loaded to prevent duplicates
+    const scriptSrc = "https://assets.calendly.com/assets/external/widget.js";
+    if (document.querySelector(`script[src="${scriptSrc}"]`)) {
+      return;
+    }
+
     // Load Calendly script dynamically
     const script = document.createElement('script');
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.src = scriptSrc;
     script.async = true;
     document.body.appendChild(script);
 
     return () => {
-      // Cleanup script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
+      // Cleanup script on unmount if it was added by this component
+      // However, Calendly script is often global, so removing it might break other instances if they existed.
+      // For this single-page use case, keeping it is safe.
     };
   }, []);
 
@@ -36,7 +41,7 @@ export const BookingSection: React.FC = () => {
            {/* Calendly inline widget begin */}
            <div 
              className="calendly-inline-widget" 
-             data-url="https://calendly.com/ryewire204/30min?hide_event_type_details=1&hide_gdpr_banner=1" 
+             data-url="https://calendly.com/ryewire204/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=ff9a00" 
              style={{ minWidth: '320px', height: '700px' }}
            ></div>
            {/* Calendly inline widget end */}
