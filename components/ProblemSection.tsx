@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionHeading } from './SectionHeading';
-import { Wallet, Landmark, ThumbsUp } from 'lucide-react';
+import { Wallet, Landmark, ThumbsUp, Car, Truck, CarFront } from 'lucide-react';
 
 export const ProblemSection: React.FC = () => {
   // Generate random particles
@@ -14,8 +14,17 @@ export const ProblemSection: React.FC = () => {
     opacity: Math.random() * 0.4 + 0.1
   }));
 
+  // Create a repeating array of vehicle icons for the marquee
+  // We repeat the pattern enough times to ensure it fills wide screens
+  const vehicleIcons = [
+    { Icon: Truck, key: 'truck' },
+    { Icon: Car, key: 'car' },
+    { Icon: CarFront, key: 'suv' },
+  ];
+  const marqueeItems = Array(12).fill(vehicleIcons).flat();
+
   return (
-    <section className="py-24 bg-white">
+    <section className="pt-24 pb-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading 
           title="Financing For All Credit Levels"
@@ -61,13 +70,20 @@ export const ProblemSection: React.FC = () => {
         </div>
 
         <div className="mt-16 bg-gradient-to-br from-primary to-slate-700 rounded-3xl p-8 md:p-16 text-center shadow-2xl overflow-hidden relative group">
-          {/* Custom Animation Style */}
+          {/* Custom Animation Styles */}
           <style dangerouslySetInnerHTML={{__html: `
             @keyframes float-particle {
               0% { transform: translateY(0) translateX(0); opacity: 0; }
               20% { opacity: var(--target-opacity); }
               80% { opacity: var(--target-opacity); }
               100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+            }
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+              animation: marquee 40s linear infinite;
             }
           `}} />
 
@@ -93,6 +109,18 @@ export const ProblemSection: React.FC = () => {
                 } as React.CSSProperties}
               />
             ))}
+          </div>
+
+          {/* Animated Vehicle Marquee */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 overflow-hidden opacity-[0.07] pointer-events-none select-none">
+             <div className="flex absolute bottom-[-20px] left-0 animate-marquee whitespace-nowrap items-end">
+                {/* We render the items twice to create a seamless loop effect */}
+                {[...marqueeItems, ...marqueeItems].map((Item, i) => (
+                  <div key={i} className="mx-12 transform hover:scale-110 transition-transform duration-500">
+                    <Item.Icon className="w-32 h-32 text-white" strokeWidth={1} />
+                  </div>
+                ))}
+             </div>
           </div>
 
           <div className="relative z-10">
