@@ -3,7 +3,7 @@ import { Truck, Car, Shield, Map } from 'lucide-react';
 
 export const SolutionSection: React.FC = () => {
   return (
-    <section className="py-24 bg-surface border-y border-slate-200/60">
+    <section className="pt-10 pb-24 bg-surface border-y border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
           <div>

@@ -24,7 +24,7 @@ export const ProblemSection: React.FC = () => {
   const marqueeItems = Array(12).fill(vehicleIcons).flat();
 
   return (
-    <section className="pt-24 pb-12 bg-white">
+    <section className="pt-24 pb-4 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading 
           title="Financing For All Credit Levels"
@@ -79,11 +79,11 @@ export const ProblemSection: React.FC = () => {
               100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
             }
             @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(0); }
             }
             .animate-marquee {
-              animation: marquee 40s linear infinite;
+              animation: marquee 80s linear infinite;
             }
           `}} />
 
